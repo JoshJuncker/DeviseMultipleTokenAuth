@@ -19,3 +19,7 @@ module DeviseMultipleTokenAuth
     end
   end
 end
+
+class ActionController::Base
+  include DeviseMultipleTokenAuth::ActionController::Base
+end

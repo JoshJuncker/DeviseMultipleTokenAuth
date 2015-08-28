@@ -1,5 +1,3 @@
-module DeviseMultipleTokenAuth
-  class Device::Ios < Device
-    
-  end
+class DeviseMultipleTokenAuth::Device::Ios < Device
+  
 end

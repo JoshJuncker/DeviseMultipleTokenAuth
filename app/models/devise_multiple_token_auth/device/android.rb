@@ -1,5 +1,4 @@
-module DeviseMultipleTokenAuth
-  class Device::Android < Device
+class DeviseMultipleTokenAuth::Device::Android < Device
 
-  end 
-end
+end 
+
