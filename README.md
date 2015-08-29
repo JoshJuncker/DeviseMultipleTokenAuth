@@ -70,6 +70,7 @@ If successful, you will receive a 204 with no body
 #####Want to do your own login/logout?  Do something like the following in your auth controller
 
 ```ruby
+respond_to :json
 before_filter :authenticate_token_user!
 skip_filter :authenticate_token_user!, only: [:login]
 
