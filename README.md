@@ -38,9 +38,40 @@ and a new migration called
 Example API Usage
 ------
 
-API login example using the new user method 'create_device'
+######How to login
+Send an http post with content-type 'application/json' to /devise_multiple_token_auth/auth/login using the following params: :email or :username and :password
+
+If successful, you'll get back the following json
+
+```json
+{
+  "auth_token": "a1afa8c4622af2d373d042aa43de5f26"
+}
+```
+
+Set the client's Authorization header to the value of the returned auth_token
 
 ```ruby
+Authorization: "my_shiny_new_auth_token_string_identifier"
+```
+
+######How to enforce authentication
+Add the following code to any controller to enforce token authentication
+
+```ruby
+before_filter :authenticate_token_user!
+
+######How to logout
+Send an http delete with content-type 'application/json', and Authorization 'your_shiny_token_that_you_received_from_logging_in' to /devise_multiple_token_auth/auth/logout
+
+If successful, you will receive a 204 with no body
+
+#####Want to do your own login/logout?  Do something like the following in your auth controller
+
+```ruby
+before_filter :authenticate_token_user!
+skip_filter :authenticate_token_user!, only: [:login]
+
 def login
   email = params[:email] || params[:username]
   password = params[:password]
@@ -52,28 +83,12 @@ def login
     render json: {error: 'Invalid credentials', code: '401'}, status: :unauthorized
   end
 end
-```
 
-API logout example using the @device variable that is set
-```ruby
 def logout
   @device.destroy
   head :no_content
 end
 ```
-
-Set the client's Authorization header to the value of the returned auth_token
-
-```ruby
-Authorization: "my_shiny_new_auth_token_string_identifier"
-```
-
-Then add the following code to any controller to enforce token authentication
-
-```ruby
-before_filter :authenticate_token_user!
-```
-
 
 Credits
 -------
