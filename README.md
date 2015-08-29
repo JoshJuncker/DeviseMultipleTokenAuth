@@ -63,7 +63,7 @@ Authorization: "my_shiny_new_auth_token_string_identifier"
 Then add the following code to any controller to enforce token authentication
 
 ```ruby
-  before_filter :authenticate_token_user!
+before_filter :authenticate_token_user!
 ```
 
 
