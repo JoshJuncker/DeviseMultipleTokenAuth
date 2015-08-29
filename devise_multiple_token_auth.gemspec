@@ -8,16 +8,17 @@ Gem::Specification.new do |s|
   s.name        = "devise_multiple_token_auth"
   s.version     = DeviseMultipleTokenAuth::VERSION
   s.authors     = ["Josh Juncker"]
-  s.email       = ["josh@ringseven.com"]
-  s.homepage    = "https://github.com/Verdad/DeviseMultipleTokenAuth"
-  s.summary     = "Summary of DeviseMultipleTokenAuth."
-  s.description = "Description of DeviseMultipleTokenAuth."
+  s.email       = ["joshjuncker@outlook.com"]
+  s.homepage    = "https://github.com/joshjuncker/DeviseMultipleTokenAuth"
+  s.summary     = "Multiple device token authentication for devise"
+  s.description = "If you like to use Devise, but wish it had an easy token authentication system that handles a user logging in from multiple devices, DeviseMultipleTokenAuth is for you."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.2.0"
+  s.add_dependency "devise"
 
   s.add_development_dependency "sqlite3"
 end
