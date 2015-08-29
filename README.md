@@ -60,6 +60,7 @@ Add the following code to any controller to enforce token authentication
 
 ```ruby
 before_filter :authenticate_token_user!
+```
 
 ######How to logout
 Send an http delete with content-type 'application/json', and Authorization 'your_shiny_token_that_you_received_from_logging_in' to /devise_multiple_token_auth/auth/logout
