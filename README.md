@@ -54,6 +54,14 @@ def login
 end
 ```
 
+API logout example using the @device variable that is set
+```ruby
+def logout
+  @device.destroy
+  head :no_content
+end
+```
+
 Set the client's Authorization header to the value of the returned auth_token
 
 ```ruby
