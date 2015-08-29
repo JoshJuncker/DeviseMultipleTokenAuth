@@ -6,14 +6,16 @@ module DeviseMultipleTokenAuth
         if token.present? && token.include?("OAuth")
           token = token.gsub(/^OAuth\s+/, '')
         end
-        device = Device.find_by_auth_token(token)
-        if !device || device.expired? || !device.user
+        @device = Device.find_by_auth_token(token)
+        if !@device || @device.expired? || @device.user == nil
           respond_to do |format|
-            format.html redirect_to new_user_session_path
-            format.json render status: :unauthorized, nothing: true
+            format.html { redirect_to new_user_session_path }
+            format.json { render status: :unauthorized, nothing: true }
           end
         else
-          sign_in(device.user)
+          @device.expires_at = Time.now + (DeviseMultipleTokenAuth.device_expires_in_days || 14).days
+          @device.save
+          sign_in(@device.user)
         end
       end
     end
