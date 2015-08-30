@@ -13,19 +13,15 @@ module DeviseMultipleTokenAuth
       Time.now.utc.strftime("%Y%m%d%H%M%S")
     end
 
-#     def insert_into_user_model
-#       inject_into_file "app/models/user.rb", after: /^class\sUser < ActiveRecord::Base/ do
-#         <<-'RUBY'
+    def insert_into_user_model
+      inject_into_file "app/models/user.rb", after: /^class\sUser < ActiveRecord::Base/ do
+        <<-'RUBY'
 
-# ################################################################################ 
-# ## PeterGate Roles
-# ## The :user role is added by default and shouldn't be included in this list.
-# has_many :devices, class_name: DeviseMultipleTokenAuth::Device
-# ################################################################################
-
-#         RUBY
-#       end
-#     end
+  # Allows token auth devices to be created by calling user.create_device
+  devise_token_authenticable
+        RUBY
+      end
+    end
 
     def copy_initializer
       template "devise_multiple_token_auth.rb", "config/initializers/devise_multiple_token_auth.rb"

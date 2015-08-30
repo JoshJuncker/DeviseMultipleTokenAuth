@@ -2,6 +2,14 @@
 
 > If you like to use Devise, but wish it had an easy token authentication system that handles a user logging in from multiple devices, DeviseMultipleTokenAuth is for you.
 
+Dependencies
+------
+######Devise User
+DeviseMultipleTokenAuth depends on devise.  Currently it has deep hooks into the User model.  Thus, first add devise to your gem file and install it, and then make sure you create the User model at app/models/user.rb.  If you don't already have that model, you can use devise's generator shown below.
+
+```ruby
+rails generate devise User
+```
 
 Installation
 ------
@@ -14,16 +22,6 @@ Installation
 
     bundle install
 
-######Or install it yourself as:
-
-    gem install devise_multiple_token_auth
-
-######Setup
-
-Make sure your user model is defined in
-    app/models/user.rb
-and called User.
-
 ######Run the generator
 
     rails g devise_multiple_token_auth:install
@@ -31,6 +29,7 @@ This will add an initializer at
   config/initializers/devise_multiple_token_auth.rb
 and a new migration called
   create_devise_multiple_token_auth_devices.rb
+It will also add devise_token_authenticable to app/models/user.rb
 
 ######Run the migrations
     rake db:migrate
