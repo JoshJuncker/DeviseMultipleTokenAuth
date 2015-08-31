@@ -7,7 +7,7 @@ module DeviseMultipleTokenAuth
       end
 
       module ClassMethods
-        def devise_token_authenticable
+        def devise_token_authenticatable
           class_eval do 
             has_many :devices, class_name: "DeviseMultipleTokenAuth::Device"
             def create_device

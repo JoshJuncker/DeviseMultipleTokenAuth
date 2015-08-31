@@ -18,7 +18,7 @@ module DeviseMultipleTokenAuth
         <<-'RUBY'
 
   # Allows token auth devices to be created by calling user.create_device
-  devise_token_authenticable
+  devise_token_authenticatable
         RUBY
       end
     end
