@@ -1,3 +1,3 @@
-class DeviseMultipleTokenAuth::Device::Windowsphone < Device
-  
+class DeviseMultipleTokenAuth::Device::Windowsphone < DeviseMultipleTokenAuth::Device
+
 end
