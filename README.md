@@ -29,7 +29,7 @@ This will add an initializer at
   config/initializers/devise_multiple_token_auth.rb
 and a new migration called
   create_devise_multiple_token_auth_devices.rb
-It will also add devise_token_authenticable to app/models/user.rb
+It will also add devise_token_authenticatable to app/models/user.rb
 
 ######Run the migrations
     rake db:migrate

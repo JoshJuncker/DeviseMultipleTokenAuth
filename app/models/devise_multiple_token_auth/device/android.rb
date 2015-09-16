@@ -1,4 +1,3 @@
-class DeviseMultipleTokenAuth::Device::Android < Device
+class DeviseMultipleTokenAuth::Device::Android < DeviseMultipleTokenAuth::Device
 
-end 
-
+end
