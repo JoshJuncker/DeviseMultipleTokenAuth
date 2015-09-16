@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devise_multiple_token_auth (0.0.2)
+    devise_multiple_token_auth (0.0.3)
       devise
       rails (~> 4.2.0)
 
