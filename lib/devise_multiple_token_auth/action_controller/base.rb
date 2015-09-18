@@ -8,10 +8,7 @@ module DeviseMultipleTokenAuth
         end
         @device = Device.find_by_auth_token(token)
         if !@device || @device.expired? || @device.user == nil
-          respond_to do |format|
-            format.html { redirect_to new_user_session_path }
-            format.json { render status: :unauthorized, nothing: true }
-          end
+          render json: { }, status: :unauthorized
         else
           @device.expires_at = Time.now + (DeviseMultipleTokenAuth.device_expires_in_days || 14).days
           @device.save
