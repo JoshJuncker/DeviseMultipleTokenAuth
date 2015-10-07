@@ -93,9 +93,9 @@ end
 
 #####To add push notification structure to devices
 Install the migration to add :platform and :push_token to the devices table
-```ruby
-rails g devise_multiple_token_auth:add_push_notification_functionality
-```
+
+    rails g devise_multiple_token_auth:add_push_notification_functionality
+
 Update the current users device with an auth token by sending a PUT to /devise_multiple_token_auth/update_push_token with the params: :push_token and :platform.  Platform accepts any of these three values: ios, android, windowsphone.
 
 Platform is a self inheritance column, thus you can ask a device if it is_a? DeviseMultipleTokenAuth::Device::Android, DeviseMultipleTokenAuth::Device::Ios, or DeviseMultipleTokenAuth::Device::Windowsphone to determine how to send the push notification, or you can simply check the string in the :platform column.
