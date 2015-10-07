@@ -2,7 +2,7 @@ require 'rails/generators'
 require 'securerandom'
 
 module DeviseMultipleTokenAuth
-  class InstallGenerator < Rails::Generators::Base
+  class AddPushNotificationFunctionalityGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
     source_root File.expand_path("../templates", __FILE__)
     class_option :orm
