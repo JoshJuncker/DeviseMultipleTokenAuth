@@ -1,5 +1,9 @@
 class DeviseMultipleTokenAuth::DeviceUpdateController < ApplicationController
+  
   before_filter :authenticate_token_user!
+
+  respond_to :json
+
   def update_push_token
     if @device.update(push_token_params)
       render json: @device
