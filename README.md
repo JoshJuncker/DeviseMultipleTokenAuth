@@ -101,7 +101,7 @@ Update the current users device with an auth token by sending a PUT to /devise_m
 Credits
 -------
 
-DeviseMultipleTokenAuth is written and maintaned by Josh Juncker and friends.
+DeviseMultipleTokenAuth is written and maintained by Josh Juncker and friends.
 
 Currently funded and maintained by [Verdad Technologies](http://verdadtech.com)
 
