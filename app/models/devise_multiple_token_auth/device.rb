@@ -8,8 +8,8 @@ class DeviseMultipleTokenAuth::Device < ActiveRecord::Base
     DeviseMultipleTokenAuth::Device.expired.destroy_all
   end
 
-  def self.cleanup_push_tokens!(token,omit_device)
-    Device.where.not(id:omit_device.id).where(push_token:token).each do |other_device|
+  def cleanup_push_tokens!
+    self.class.where.not(id:self.id).where(push_token:self.push_token).each do |other_device|
       other_device.push_token = nil
       other_device.save
     end
