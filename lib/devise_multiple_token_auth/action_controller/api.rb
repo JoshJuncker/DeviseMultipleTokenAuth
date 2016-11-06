@@ -1,6 +1,6 @@
 module DeviseMultipleTokenAuth
   module ActionController
-    module Base
+    module API
       def authenticate_token_user!
         token = request.env['HTTP_AUTHORIZATION']
         if token.present? && token.include?("OAuth")
@@ -20,6 +20,6 @@ module DeviseMultipleTokenAuth
   end
 end
 
-class ActionController::Base
-  include DeviseMultipleTokenAuth::ActionController::Base
+class ActionController::API
+  include DeviseMultipleTokenAuth::ActionController::API
 end
